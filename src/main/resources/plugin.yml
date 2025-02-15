@@ -39,3 +39,4 @@ commands:
     settings:
         description: "Open the settings GUI"
         usage: "/settings"
+    ench:

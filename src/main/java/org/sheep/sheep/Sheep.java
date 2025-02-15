@@ -3,6 +3,9 @@ package org.sheep.sheep;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 import org.bukkit.event.EventHandler;
@@ -21,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public final class Sheep extends JavaPlugin implements Listener {
+public final class Sheep extends JavaPlugin implements Listener, CommandExecutor {
 
     private static Sheep instance; // Singleton-Instance
 
@@ -50,6 +53,7 @@ public final class Sheep extends JavaPlugin implements Listener {
         getCommand("spawn").setExecutor(new spawn(this));
         getCommand("ench").setExecutor(new ench());
         getCommand("ench").setTabCompleter(new ench());
+        getCommand("settings").setExecutor(this);
 
         getServer().getPluginManager().registerEvents(new FreezeListener(freezeCommand), this);
         getServer().getPluginManager().registerEvents(settingsGUI, this); // Registriere die Events der SettingsGUI
@@ -58,16 +62,21 @@ public final class Sheep extends JavaPlugin implements Listener {
 
         customInventory = Bukkit.createInventory(null, 54, "Customs Inventory");
 
-        getCommand("settings").setExecutor((sender, command, label, args) -> {
-            if (sender instanceof Player) {
-                Player player = (Player) sender;
-                settingsGUI.openSettingsGUI(player); // Öffnet das Settings-GUI
-            }
-            return true;
-        });
 
         getLogger().info("Sheep Plugin erfolgreich aktiviert!"); // HAHAHAHAHFDZWDBWA
     }
+
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if(command.getName().equalsIgnoreCase("settings"))
+            if (sender instanceof Player) {
+                Player player = (Player) sender;
+                settingsGUI.openSettingsGUI(player);
+            }
+        return true;
+    };
+
 
     @Override
     public void onDisable() {
