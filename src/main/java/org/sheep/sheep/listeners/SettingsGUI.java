@@ -41,7 +41,7 @@ public class SettingsGUI implements Listener {
 
     // Öffnet die zweite Seite des Killsound-GUIs
     public void openSettingsPageTwo(Player player) {
-        Inventory gui = Bukkit.createInventory(null, 27, ChatColor.GREEN + "Killsounds");
+        Inventory gui = Bukkit.createInventory(null, 27, ChatColor.GREEN + "Killsounds Page 2");
 
         // Seite 2: Items hinzufügen
         gui.setItem(10, createSoundItem(Material.RECOVERY_COMPASS, "Sonic Boom", Sound.ENTITY_WARDEN_SONIC_BOOM, player));
@@ -105,7 +105,7 @@ public class SettingsGUI implements Listener {
             }
         }
         // Logik für die zweite Seite
-        else if (title.equals(ChatColor.GREEN + "Killsounds")) {
+        else if (title.equals(ChatColor.GREEN + "Killsounds Page 2")) {
             event.setCancelled(true);
 
             ItemStack clickedItem = event.getCurrentItem();
