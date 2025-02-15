@@ -126,7 +126,7 @@ public class SettingsGUI implements Listener {
 
     // Verarbeitet die Soundauswahl oder spielt eine Vorschau ab
     private void handleSoundSelection(Player player, Sound sound, String soundName, ItemStack clickedItem, InventoryClickEvent event) {
-        if (event.isLeftClick() || event.isRightClick()) {
+        if (event.isRightClick()) {
             // Vorschau abspielen
             player.playSound(player.getLocation(), sound, 1.0f, 1.0f);
         } else {
