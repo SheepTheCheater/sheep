@@ -1,0 +1,41 @@
+name: Sheep
+main: org.sheep.sheep.Sheep
+version: 1.0
+api-version: 1.21  # Aktualisiert auf 1.21
+description: A versatile Sheep plugin with various commands and features.
+author: SheepTheCheater
+
+commands:
+    freeze:
+        description: "Freezes a player"
+        usage: "/freeze <player>"
+        permission: "sheep.freeze"  # Optional: Berechtigung hinzufügen
+    unfreeze:
+        description: "Unfreezes a player"
+        usage: "/unfreeze <player>"
+        permission: "sheep.unfreeze"  # Optional: Berechtigung hinzufügen
+    gm:
+        description: "Change your game mode"
+        usage: "/gm <mode>"
+        permission: "sheep.gamemode"  # Optional: Berechtigung hinzufügen
+    ckit:
+        description: "Get a custom kit"
+        usage: "/ckit"
+        permission: "sheep.ckit"  # Optional: Berechtigung hinzufügen
+    sheep:
+        description: "Sheep plugin help command"
+        usage: "/sheep"
+    heal:
+        description: "Heals the player"
+        usage: "/heal"
+        permission: "sheep.heal"  # Optional: Berechtigung hinzufügen
+    setspawn:
+        description: "Sets the spawn point"
+        usage: "/setspawn"
+        permission: "sheep.setspawn"  # Optional: Berechtigung hinzufügen
+    spawn:
+        description: "Teleports to the spawn point"
+        usage: "/spawn"
+    settings:
+        description: "Open the settings GUI"
+        usage: "/settings"
